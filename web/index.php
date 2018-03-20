@@ -25,6 +25,28 @@ $app->get('/', function() use($app) {
 
 $app->get('/db', function() use($app) {
   echo "s";
+// Create seed data
+$seedData = array(
+    array(
+        'decade' => '1970s', 
+        'artist' => 'Debby Boone',
+        'song' => 'You Light Up My Life', 
+        'weeksAtOne' => 10
+    ),
+    array(
+        'decade' => '1980s', 
+        'artist' => 'Olivia Newton-John',
+        'song' => 'Physical', 
+        'weeksAtOne' => 10
+    ),
+    array(
+        'decade' => '1990s', 
+        'artist' => 'Mariah Carey',
+        'song' => 'One Sweet Day', 
+        'weeksAtOne' => 16
+    ),
+);
+
 
 $uri = "mongodb://heroku_7hskhz92:Nb!66336623@ds249545.mlab.com:49545/heroku_7hskhz92";
 $client = new MongoDB\Client($uri);
