@@ -59,7 +59,24 @@ $songs = $client->db->songs;
 var_dump($songs);
 echo "xxxxxx";
 // To insert a dict, use the insert method.
-$songs->insertMany($seedData);
+$songs->insertMany([
+        'decade' => '1970s', 
+        'artist' => 'Debby Boone',
+        'song' => 'You Light Up My Life', 
+        'weeksAtOne' => 10
+    ],
+    [
+        'decade' => '1980s', 
+        'artist' => 'Olivia Newton-John',
+        'song' => 'Physical', 
+        'weeksAtOne' => 10
+    ],
+    [
+        'decade' => '1990s', 
+        'artist' => 'Mariah Carey',
+        'song' => 'One Sweet Day', 
+        'weeksAtOne' => 16
+    ]);
 /*
  * Then we need to give Boyz II Men credit for their contribution to
  * the hit "One Sweet Day".
