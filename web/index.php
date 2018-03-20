@@ -22,4 +22,11 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
+
+$app->get('/db', function() use($app) {
+  echo "s";
+});
+
+
+
 $app->run();
