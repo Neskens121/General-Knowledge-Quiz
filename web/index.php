@@ -34,6 +34,8 @@ var_dump($client);
  * collection; it is created automatically when we insert.
  */
 $songs = $client->db->songs;
+var_dump($songs);
+echo "xxxxxx";
 // To insert a dict, use the insert method.
 $songs->insertMany($seedData);
 /*
@@ -48,6 +50,7 @@ $songs->updateOne(
  * Finally we run a query which returns all the hits that spent 10 
  * or more weeks at number 1. 
 */
+
 $query = array('weeksAtOne' => array('$gte' => 10));
 $options = array(
     "sort" => array('decade' => 1),
