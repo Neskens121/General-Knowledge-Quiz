@@ -26,7 +26,7 @@ $app->get('/', function() use($app) {
 $app->get('/db', function() use($app) {
   echo "s";
 // Create seed data
-$seedData = array(
+/*$seedData = array(
     [
         'decade' => '1970s', 
         'artist' => 'Debby Boone',
@@ -45,7 +45,7 @@ $seedData = array(
         'song' => 'One Sweet Day', 
         'weeksAtOne' => 16
     ],
-);
+);*/
 
 
 $uri = "mongodb://heroku_7hskhz92:Nb!66336623@ds249545.mlab.com:49545/heroku_7hskhz92";
@@ -60,23 +60,17 @@ var_dump($songs);
 echo "xxxxxx";
 // To insert a dict, use the insert method.
 $songs->insertMany([
-        'decade' => '1970s', 
-        'artist' => 'Debby Boone',
-        'song' => 'You Light Up My Life', 
-        'weeksAtOne' => 10
+    [
+        'username' => 'admin',
+        'email' => 'admin@example.com',
+        'name' => 'Admin User',
     ],
     [
-        'decade' => '1980s', 
-        'artist' => 'Olivia Newton-John',
-        'song' => 'Physical', 
-        'weeksAtOne' => 10
+        'username' => 'test',
+        'email' => 'test@example.com',
+        'name' => 'Test User',
     ],
-    [
-        'decade' => '1990s', 
-        'artist' => 'Mariah Carey',
-        'song' => 'One Sweet Day', 
-        'weeksAtOne' => 16
-    ]);
+]);
 /*
  * Then we need to give Boyz II Men credit for their contribution to
  * the hit "One Sweet Day".
