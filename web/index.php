@@ -25,7 +25,6 @@ $app->get('/', function() use($app) {
 
 $app->get('/db', function() use($app) {
   echo "s";
-require '..vendor/autoload.php';
 
 $uri = "mongodb://heroku_7hskhz92:Nb!66336623@ds249545.mlab.com:49545/heroku_7hskhz92";
 $client = new MongoDB\Client($uri);
