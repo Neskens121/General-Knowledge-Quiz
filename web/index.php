@@ -25,6 +25,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/db', function() use($app) {
   echo "s";
+  return true;
 });
 
 
