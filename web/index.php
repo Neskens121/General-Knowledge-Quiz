@@ -64,6 +64,7 @@ $songs->insertMany($seedData);
  * Then we need to give Boyz II Men credit for their contribution to
  * the hit "One Sweet Day".
 */
+echo "g";
 $songs->updateOne(
     array('artist' => 'Mariah Carey'), 
     array('$set' => array('artist' => 'Mariah Carey ft. Boyz II Men'))
