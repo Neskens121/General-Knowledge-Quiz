@@ -34,7 +34,9 @@ $inventory = $client->inventory;
 //var_dump($inventory);
 echo "<br>";
 
-$test = $inventory->command([]);
+$test = $inventory->command([
+	'find' => []
+]);
 
 var_dump($test);
 
