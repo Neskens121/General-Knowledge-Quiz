@@ -32,21 +32,20 @@ $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 $client = new MongoDB\Client($uri);
 //var_dump($client);
 
-$songs = $client->songs;
-var_dump($songs);
+$inventory = $client->inventory
+var_dump($inventory);
 
 
 
 
-$cursor = $songs->find([]);
+$cursor = $inventory->find([]);
 //var_dump($cursor);
 
 foreach($cursor as $doc) {
-    echo 'In the ' .$doc['decade'];
-    echo ', ' .$doc['song']; 
-    echo ' by ' .$doc['artist'];
-    echo ' topped the charts for ' .$doc['weeksAtOne']; 
-    echo ' straight weeks.', "\n";
+    echo "A<br>";
+    echo 'In the ' .$doc['item'];
+    echo ', ' .$doc['qty']; 
+    echo ' by ' .$doc['status'];
 }
 echo "xxxxxx";
 return true;
