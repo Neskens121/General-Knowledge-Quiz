@@ -34,7 +34,9 @@ $inventory = $client->inventory;
 var_dump($inventory);
 echo "<br>";
 
+$test = $inventory->getCollectionNames();
 
+var_dump($test);
 
 $cursor = $inventory->find([]);
 
