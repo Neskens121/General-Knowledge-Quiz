@@ -34,7 +34,7 @@ $inventory = $client->inventory;
 //var_dump($inventory);
 echo "<br>";
 
-$test = $inventory->getCollectionNames();
+$test = $inventory->count();
 
 var_dump($test);
 
