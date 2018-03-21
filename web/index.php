@@ -32,7 +32,7 @@ $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 $client = new MongoDB\Client($uri);
 //var_dump($client);
 
-$songs = $client->db->songs;
+$songs = $client->songs;
 var_dump($songs);
 
 echo "xxxxxx";
