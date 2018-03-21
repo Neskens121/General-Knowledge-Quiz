@@ -38,7 +38,7 @@ echo "<br>";
 	'find' => []
 ]);*/
 
-$test = inventory->find([]);
+$test = $inventory->find([]);
 var_dump($test);
 
 $cursor = $inventory->find([]);
