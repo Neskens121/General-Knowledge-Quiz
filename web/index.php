@@ -27,7 +27,8 @@ $app->get('/db', function() use($app) {
   echo "s";
 
 
-$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
+$uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
+//$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 $client = new MongoDB\Client($uri);
 var_dump($client);
 
