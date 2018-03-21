@@ -33,7 +33,7 @@ $client = new MongoDB\Client($uri);
 $inventory = $client->inventory->find([]);
 var_dump($inventory);
 
-
+/*
 
 
 $cursor = $inventory->find([]);
@@ -45,7 +45,7 @@ foreach($cursor as $doc) {
     echo 'In the ' .$doc['item'];
     echo ', ' .$doc['qty']; 
     echo ' by ' .$doc['status'];
-}
+}*/
 echo "xxxxxx";
 return true;
 });
