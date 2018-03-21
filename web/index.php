@@ -27,30 +27,42 @@ $app->get('/db', function() use($app) {
 
 $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 //$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-$client = new MongoDB\Client($uri);
+$client = new MongoDB\Driver\Manager($uri);
+
+//$client = new MongoDB\Client($uri);
 //var_dump($client);
 
-$inventory = $client->inventory->inventory;
+//$inventory = $client->inventory;
 //var_dump($inventory);
-echo "<br>";
+$query = new MongoDB\Driver\Query( [] );
+
+/* Query the "asteroids" collection of the "test" database */
+$cursor = $manager->executeQuery("inventory", $query);
+
+/* $cursor now contains an object that wraps around the result set. Use
+ * foreach() to iterate over all the result */
+foreach($cursor as $document) {
+    print_r($document);
+}
+
 
 /*$test = $inventory->command([
 	'find' => []
 ]);*/
 
-$test = $inventory->find([]);
-var_dump($test);
+//$test = $inventory->find([]);
+//var_dump($test);
 
-$cursor = $inventory->find([]);
+//$cursor = $inventory->find([]);
 
 //var_dump($cursor);
-
+/*
 foreach($cursor as $doc) {
     echo "A<br>";
     echo 'In the ' .$doc['item'];
     echo ', ' .$doc['qty']; 
     echo ' by ' .$doc['status'];
-}
+}*/
 echo "xxxxxx";
 return true;
 });
