@@ -36,16 +36,16 @@ var_dump($songs);
 
 echo "xxxxxx";
 
-$cursor = $songs->find( {} );
+$cursor = $songs->find({});
 
-
+/*
 foreach($cursor as $doc) {
     echo 'In the ' .$doc['decade'];
     echo ', ' .$doc['song']; 
     echo ' by ' .$doc['artist'];
     echo ' topped the charts for ' .$doc['weeksAtOne']; 
     echo ' straight weeks.', "\n";
-}
+}*/
 
 return true;
 });
