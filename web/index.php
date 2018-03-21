@@ -35,7 +35,7 @@ $client = new MongoDB\Client($uri);
 $songs = $client->songs;
 var_dump($songs);
 
-echo "xxxxxx";
+
 
 
 $cursor = $songs->find([]);
@@ -48,7 +48,7 @@ foreach($cursor as $doc) {
     echo ' topped the charts for ' .$doc['weeksAtOne']; 
     echo ' straight weeks.', "\n";
 }
-
+echo "xxxxxx";
 return true;
 });
 
