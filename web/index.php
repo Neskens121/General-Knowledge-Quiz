@@ -31,8 +31,8 @@ $client = new MongoDB\Client($uri);
 
 var_dump($client);
 
-$inventory = $client->inventory;
-var_dump($inventory);
+$db = $client->inventory;
+var_dump($db);
 
 $rows = $db->inventory->find([]);
 var_dump($rows);
