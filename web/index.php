@@ -34,7 +34,7 @@ var_dump($client);
 $inventory = $client->inventory;
 var_dump($inventory);
 
-$rows = $client->executeCommand('inventory',  $cmd);
+$rows = $inventory->find([]);
 var_dump($rows);
 
 
