@@ -30,10 +30,10 @@ $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 $client = new MongoDB\Client($uri);
 //var_dump($client);
 
-$inventory = $client->inventory->find([]);
+$inventory = $client->inventory;
 var_dump($inventory);
 
-/*
+
 
 
 $cursor = $inventory->find([]);
@@ -45,7 +45,7 @@ foreach($cursor as $doc) {
     echo 'In the ' .$doc['item'];
     echo ', ' .$doc['qty']; 
     echo ' by ' .$doc['status'];
-}*/
+}
 echo "xxxxxx";
 return true;
 });
