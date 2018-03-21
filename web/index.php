@@ -69,7 +69,7 @@ $songs->insertMany([
         'username' => 'test',
         'email' => 'test@example.com',
         'name' => 'Test User',
-    ],
+    ]
 ]);
 /*
  * Then we need to give Boyz II Men credit for their contribution to
