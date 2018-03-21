@@ -59,7 +59,7 @@ $songs = $client->db->songs;
 var_dump($songs);
 echo "xxxxxx";
 // To insert a dict, use the insert method.
-$songs->insertMany([
+/*$songs->insertMany([
     [
         'username' => 'admin',
         'email' => 'admin@example.com',
@@ -70,25 +70,28 @@ $songs->insertMany([
         'email' => 'test@example.com',
         'name' => 'Test User',
     ]
-]);
+]);*/
 /*
  * Then we need to give Boyz II Men credit for their contribution to
  * the hit "One Sweet Day".
 */
-$songs->updateOne(
+/*$songs->updateOne(
     array('artist' => 'Mariah Carey'), 
     array('$set' => array('artist' => 'Mariah Carey ft. Boyz II Men'))
-);
+);*/
 /*
  * Finally we run a query which returns all the hits that spent 10 
  * or more weeks at number 1. 
 */
 
-$query = array('weeksAtOne' => array('$gte' => 10));
+/*$query = array('weeksAtOne' => array('$gte' => 10));
 $options = array(
     "sort" => array('decade' => 1),
 );
-$cursor = $songs->find($query,$options);
+$cursor = $songs->find($query,$options);*/
+$cursor = $songs.find( {} );
+
+
 foreach($cursor as $doc) {
     echo 'In the ' .$doc['decade'];
     echo ', ' .$doc['song']; 
