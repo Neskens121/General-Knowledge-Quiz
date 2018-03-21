@@ -30,7 +30,7 @@ $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 $client = new MongoDB\Client($uri);
 //var_dump($client);
 
-$inventory = $client->inventory;
+$inventory = $client->selectDB("inventory");
 //var_dump($inventory);
 echo "<br>";
 
