@@ -37,7 +37,7 @@ $client = new MongoDB\Driver\Manager($uri);
 $query = new MongoDB\Driver\Query( [] );
 
 /* Query the "asteroids" collection of the "test" database */
-$cursor = $manager->executeQuery("inventory", $query);
+$cursor = $client->executeQuery("inventory", $query);
 
 /* $cursor now contains an object that wraps around the result set. Use
  * foreach() to iterate over all the result */
