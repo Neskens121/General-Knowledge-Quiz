@@ -31,16 +31,14 @@ $client = new MongoDB\Client($uri);
 
 var_dump($client);
 
-$cmd = new \MongoDB\Driver\Command([
-    'find' =>[]
-]);
+$inventory = $client->inventory;
+var_dump($inventory);
 
 $rows = $client->executeCommand('inventory',  $cmd);
 var_dump($rows);
 
 
-$inventory = $client->inventory;
-var_dump($inventory);
+
 
 foreach($cursor as $doc) {
     echo "A<br>";
