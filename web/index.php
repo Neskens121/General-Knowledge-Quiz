@@ -38,7 +38,7 @@ var_dump($inventory);
 
 
 
-$cursor = $inventory->db->find([]);
+$cursor = $inventory->inventory->find([]);
 var_dump($cursor);
 
 foreach($cursor as $doc) {
