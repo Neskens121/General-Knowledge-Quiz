@@ -30,20 +30,20 @@ $uri = "mongodb://testUser:12345!@ds117539.mlab.com:17539/heroku_wzb3tkp3";
 $client = new MongoDB\Driver\Manager($uri);
 
 //$client = new MongoDB\Client($uri);
-//var_dump($client);
+var_dump($client);
 
-//$inventory = $client->inventory;
-//var_dump($inventory);
+$inventory = $client->inventory;
+var_dump($inventory);
 $query = new MongoDB\Driver\Query( [] );
 
 /* Query the "asteroids" collection of the "test" database */
-$cursor = $client->executeQuery("inventory", $query);
+//$cursor = $client->executeQuery("inventory", $query);
 
 /* $cursor now contains an object that wraps around the result set. Use
  * foreach() to iterate over all the result */
-foreach($cursor as $document) {
+/*foreach($cursor as $document) {
     print_r($document);
-}
+}*/
 
 
 /*$test = $inventory->command([
