@@ -39,7 +39,7 @@ var_dump($inventory);
 
 
 $cursor = $inventory->find([]);
-//var_dump($cursor);
+var_dump($cursor);
 
 foreach($cursor as $doc) {
     echo "A<br>";
