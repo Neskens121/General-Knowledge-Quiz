@@ -60,16 +60,16 @@ var_dump($songs);
 echo "xxxxxx";
 // To insert a dict, use the insert method.
 $songs->insertMany([
-    [
+    {
         'username' => 'admin',
         'email' => 'admin@example.com',
         'name' => 'Admin User',
-    ],
-    [
+    },
+    {
         'username' => 'test',
         'email' => 'test@example.com',
         'name' => 'Test User',
-    ]
+    }
 ]);
 /*
  * Then we need to give Boyz II Men credit for their contribution to
