@@ -35,7 +35,7 @@ $cmd = new \MongoDB\Driver\Command([
     'find' =>[]
 ]);
 
-$rows = $mongo->executeCommand('inventory',  $cmd);
+$rows = $client->executeCommand('inventory',  $cmd);
 var_dump($rows);
 
 
