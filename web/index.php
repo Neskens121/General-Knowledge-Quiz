@@ -33,13 +33,13 @@ $client = new MongoDB\Client($uri);
 //var_dump($client);
 
 $songs = $client->songs;
-//var_dump($songs);
+var_dump($songs);
 
 echo "xxxxxx";
 
 
 $cursor = $songs->find([]);
-var_dump($cursor);
+//var_dump($cursor);
 
 foreach($cursor as $doc) {
     echo 'In the ' .$doc['decade'];
