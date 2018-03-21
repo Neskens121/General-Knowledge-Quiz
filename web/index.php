@@ -34,7 +34,7 @@ $inventory = $client->inventory;
 //var_dump($inventory);
 echo "<br>";
 
-$test = $inventory->count();
+$test = $inventory->command();
 
 var_dump($test);
 
