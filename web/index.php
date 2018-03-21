@@ -34,10 +34,11 @@ $inventory = $client->inventory;
 //var_dump($inventory);
 echo "<br>";
 
-$test = $inventory->command([
+/*$test = $inventory->command([
 	'find' => []
-]);
+]);*/
 
+$test = inventory->find([]);
 var_dump($test);
 
 $cursor = $inventory->find([]);
