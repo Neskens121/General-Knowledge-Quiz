@@ -34,7 +34,10 @@ var_dump($client);
 $db = $client->inventory;
 var_dump($db);
 
-$rows = $db->find([]);
+$rows = $db->insertMany([
+    ['_id' => 1, 'item' => null],
+    ['_id' => 2],
+]);
 var_dump($rows);
 
 
