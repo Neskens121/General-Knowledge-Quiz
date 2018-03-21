@@ -32,7 +32,7 @@ var_dump($client);
 
 $inventory = $client->inventory;
 var_dump($inventory);
-
+echo "<br>";
 
 
 
