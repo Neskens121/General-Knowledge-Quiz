@@ -31,10 +31,10 @@ $client = new MongoDB\Client($uri);
 
 var_dump($client);
 
-$db = $client->inventory;
+$db = $client->heroku_7hskhz92;
 var_dump($db);
 
-$rows = $db->insertMany([
+$rows = $db->inventory->insertMany([
     ['_id' => 1, 'item' => null],
     ['_id' => 2],
 ]);
