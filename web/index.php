@@ -35,10 +35,7 @@ $db = $client->heroku_7hskhz92;
 //var_dump($db);
 
 $rows = $db->inventory->find([]);
-var_dump($rows);
-
-
-
+//var_dump($rows);
 
 foreach($rows as $doc) {
     echo "A<br>";
