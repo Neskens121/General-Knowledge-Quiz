@@ -4,26 +4,12 @@
 <div class="jumbotron text-center">
   <div class="container">
 	<h1>Getting Started with PHP on Heroku</h1>
-	{%  	
-		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-		$client = new MongoDB\Client($uri);
-
-		//var_dump($client);
-
-		$db = $client->heroku_7hskhz92;
-		//var_dump($db);
-
-		$rows = $db->inventory->find([]);
-		//var_dump($rows);
-
-		foreach($rows as $doc) {
-    			echo "A<br>";
-    			echo 'In the ' .$doc['item'];
-    			echo ', ' .$doc['qty']; 
-    			echo ' by ' .$doc['status'];
-		}
-		echo "xxxxxx";    
-	%}
+	
+	{% for item in items %}
+		<li>
+			A<br>In the {{item.item}},  {{item.qty}} by {{item.status}}
+		</li>
+    	{% endfor %}
 	<a href="/" class="lang-logo">
      		<img src="/images/lang-logo.png">
     	</a>

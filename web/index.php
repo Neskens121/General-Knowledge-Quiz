@@ -24,7 +24,16 @@ $app->get('/', function() use($app) {
 
 
 $app->get('/db', function() use($app) {
-  return $app['twig']->render('db.twig');
+$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
+  $client = new MongoDB\Client($uri);
+
+  //var_dump($client);
+
+  $db = $client->heroku_7hskhz92;
+ //var_dump($db);
+
+  $rows = $db->inventory->find([]);
+  return $app['twig']->render('db.twig', array('items' => $rows));
 });
 
 
