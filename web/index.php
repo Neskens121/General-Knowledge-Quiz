@@ -34,16 +34,13 @@ var_dump($client);
 $db = $client->heroku_7hskhz92;
 var_dump($db);
 
-$rows = $db->inventory->insertMany([
-    ['_id' => 1, 'item' => null],
-    ['_id' => 2],
-]);
+$rows = $db->inventory->find([]);
 var_dump($rows);
 
 
 
 
-foreach($cursor as $doc) {
+foreach($rows as $doc) {
     echo "A<br>";
     echo 'In the ' .$doc['item'];
     echo ', ' .$doc['qty']; 
