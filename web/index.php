@@ -44,7 +44,7 @@ foreach($rows as $doc) {
     echo ' by ' .$doc['status'];
 }
 echo "xxxxxx";
-return true;
+//return true;
 });
 
 
