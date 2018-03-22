@@ -29,10 +29,10 @@ $app->get('/db', function() use($app) {
 $uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 $client = new MongoDB\Client($uri);
 
-var_dump($client);
+//var_dump($client);
 
 $db = $client->heroku_7hskhz92;
-var_dump($db);
+//var_dump($db);
 
 $rows = $db->inventory->find([]);
 var_dump($rows);
