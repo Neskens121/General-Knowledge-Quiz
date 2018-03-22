@@ -24,27 +24,7 @@ $app->get('/', function() use($app) {
 
 
 $app->get('/db', function() use($app) {
-return $app['twig']->render('db.twig');
-
-
-$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-$client = new MongoDB\Client($uri);
-
-//var_dump($client);
-
-$db = $client->heroku_7hskhz92;
-//var_dump($db);
-
-$rows = $db->inventory->find([]);
-//var_dump($rows);
-
-foreach($rows as $doc) {
-    echo "A<br>";
-    echo 'In the ' .$doc['item'];
-    echo ', ' .$doc['qty']; 
-    echo ' by ' .$doc['status'];
-}
-echo "xxxxxx";
+  return $app['twig']->render('db.twig');
 });
 
 
