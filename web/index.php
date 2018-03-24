@@ -39,6 +39,7 @@ $app->get('/db', function() use($app) {
 
 $app->post('/', function() use($app) {
 	session_start();
+	var_dump($_SESSION);
 	if(isset($_POST['logout'])){
 		$_SESSION = array();
 		if(isset($_COOKIE[session_name()])){
