@@ -51,7 +51,7 @@ $app->post('/', function() use($app) {
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
-		$questions = $db->questions->aggregate([$sample: [ size: 3 ] ]);
+		$questions = $db->questions->aggregate([$sample => [ size: 3 ] ]);
 		var_dump($questions);
 		$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
