@@ -1,14 +1,32 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<div id="wrapper">
-		<h2>Quiz is over</h2>
-		<p>You scored <?php echo calculateScore($tempQuestionArr, $_SESSION['userAnswerArr']) ?> points</p>
-		<form action="" method="POST">
-			<input name="logout" type="submit" id="logout" value="Start Quiz Again">
+<div id="wrapper">
+		<h2>Question Number: <?php echo ($currentQuestionNumber + 1)?></h2>
+		<p>
+			<?php echo  $tempQuestionArr[$currentQuestionNumber]['question']?>		
+		</p>
+		<form id="questionForm" action="" method="POST">
+			<ul>
+				<?php foreach ($tempQuestionArr[$currentQuestionNumber]['potentialAnswers'] as $key => $value) { ?>
+					<li>
+						<input type='radio' name='question' value=<?php echo $key; ?> id=<?php echo $key; ?> required>
+						<label for=<?php echo $key; ?>><?php echo $value; ?></label>
+					</li>
+				<?php } ?>		
+			</ul>
+			<input type="hidden" id="questionNumber" name="questionNumber" value=<?php echo $_POST['questionNumber']; ?>>
+			<button type="button" id="checkAnswerBtn">Check Answer</button>
+			<input type='submit' name='nextQuestionBtn' id='nextQuestionBtn' value='Next Question'/>
 		</form>
-	</div>
-	<script type="text/javascript">
+		<div id="result">
+			<p id="incorrectAnswer" class="incorrect">Incorrect</p>
+			<p id="correctAnswer" class="correct">Correct</p>
+			<p></p>
+			<p id="answerText"></p>
+		</div>
+</div>
+<script type="text/javascript">
 		var startBtn = document.getElementById('startBtn');
 		var nextQuestionBtn = document.getElementById('nextQuestionBtn');
 		var questionNumber = document.getElementById('questionNumber');
