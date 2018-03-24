@@ -5,9 +5,9 @@
   <div class="container">
 	<h1>Getting Started with PHP on Heroku</h1>
 	
-	{% for item in items %}
+	{% for question in questions %}
 		<li>
-		   In the {{item.item}},  {{item.qty}} by {{item.status}}
+		   In the {{question.question}},  {{question.indexOfCorrectAnswer}} by {{question.questionAuthor}}
 		</li>
     	{% endfor %}
 	<a href="/" class="lang-logo">
