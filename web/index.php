@@ -52,7 +52,7 @@ $app->post('/', function() use($app) {
 		$db = $client->heroku_7hskhz92;
 		$questions = $db->questions->find([]);
 		var_dump($questions);
-
+		return $app['twig']->render('question.twig');
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
 			var_dump($_POST);
