@@ -53,11 +53,12 @@ $app->post('/', function() use($app) {
 		$db = $client->heroku_7hskhz92;
 		$questions = $db->questions->find([]);
 		$_SESSION['questionIndexArr'] = array_rand($questions, 5);
-			shuffle($_SESSION['questionIndexArr']);
+		shuffle($_SESSION['questionIndexArr']);
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $questions[$value];
 		}
 		$_SESSION['userAnswerArr'] = array();
+		var_dump($_SESSION);
 		return $app['twig']->render('db.twig', array('questions' => $questions));
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
