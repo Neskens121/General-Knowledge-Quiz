@@ -48,7 +48,7 @@ $app->post('/', function() use($app) {
 			setcookie(session_name(), '', time() -86400, '/');
 		}
 		session_destroy();
-		header('Location: https://mighty-escarpment-32450.herokuapp.com/');
+		return $app['twig']->render('index.twig');
 	} else{
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
