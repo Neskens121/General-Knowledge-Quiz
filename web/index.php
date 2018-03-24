@@ -41,14 +41,24 @@ $app->get('/db', function() use($app) {
 
 
 $app->post('/', function() use($app) {
-	if(isset($_POST['startBtn'])){
-		$app['monolog']->addDebug('logging output.');
-		var_dump($_POST);
-		return $app['twig']->render('question.twig');	
-	} else {
-		$app['monolog']->addDebug('logging output.');
-		var_dump($_POST);
-		return $app['twig']->render('quizResult.twig');
+	session_start();
+	if(isset($_POST['logout'])){
+		$_SESSION = array();
+		if(isset($_COOKIE[session_name()])){
+			setcookie(session_name(), '', time() -86400, '/');
+		}
+		session_destroy();
+		header('Location: https://mighty-escarpment-32450.herokuapp.com/');
+	} else{
+		if(isset($_POST['startBtn'])){
+			$app['monolog']->addDebug('logging output.');
+			var_dump($_POST);
+			return $app['twig']->render('question.twig');	
+		} else {
+			$app['monolog']->addDebug('logging output.');
+			var_dump($_POST);
+			return $app['twig']->render('quizResult.twig');
+		}
 	}
 });
 
