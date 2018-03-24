@@ -23,6 +23,9 @@ $app->get('/', function() use($app) {
 });
 
 
+
+
+
 $app->get('/db', function() use($app) {
 	$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 	$client = new MongoDB\Client($uri);
@@ -35,6 +38,20 @@ $app->get('/db', function() use($app) {
 	$questions = $db->questions->find([]);
 	return $app['twig']->render('db.twig', array('questions' => $questions));
 });
+
+
+$app->post('/', function() use($app) {
+	if(isset($_POST['startBtn'])){
+		$app['monolog']->addDebug('logging output.');
+		return $app['twig']->render('question.twig');	
+	} else {
+		$app['monolog']->addDebug('logging output.');
+		return $app['twig']->render('quizResult.twig');
+	}
+});
+
+
+
 
 
 

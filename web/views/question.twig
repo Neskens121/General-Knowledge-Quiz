@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div id="wrapper">
+		<h2>Quiz is over</h2>
+		<p>You scored <?php echo calculateScore($tempQuestionArr, $_SESSION['userAnswerArr']) ?> points</p>
+		<form action="" method="POST">
+			<input name="logout" type="submit" id="logout" value="Start Quiz Again">
+		</form>
+	</div>
+{% endblock %}
