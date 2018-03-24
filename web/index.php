@@ -32,8 +32,8 @@ $app->get('/db', function() use($app) {
 	$db = $client->heroku_7hskhz92;
  //var_dump($db);
 
-$questions = $db->questions->find([]);
-return $app['twig']->render('db.twig', array('questions' => $questions));
+	$questions = $db->questions->find([]);
+	return $app['twig']->render('db.twig', array('questions' => $questions));
 });
 
 
