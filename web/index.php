@@ -23,9 +23,6 @@ $app->get('/', function() use($app) {
 });
 
 
-
-
-
 $app->get('/db', function() use($app) {
 	$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 	$client = new MongoDB\Client($uri);
@@ -50,6 +47,12 @@ $app->post('/', function() use($app) {
 		session_destroy();
 		return $app['twig']->render('index.twig');
 	} else{
+		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
+		$client = new MongoDB\Client($uri);
+		$db = $client->heroku_7hskhz92;
+		$questions = $db->questions->find([]);
+		var_dump($questions);
+
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
 			var_dump($_POST);
