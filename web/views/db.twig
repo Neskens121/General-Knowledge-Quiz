@@ -8,8 +8,13 @@
 	{% for question in questions %}
 		<li>
 		   In the {{question.question}},  {{question.indexOfCorrectAnswer}} by {{question.questionAuthor}}
+		   {% for potentialAnswer in question.potentialAnswers %}
+				<li>
+		   			In the {{potentialAnswer}}
+				</li>
+    		{% endfor %}
 		</li>
-    	{% endfor %}
+    {% endfor %}
 	<a href="/" class="lang-logo">
      		<img src="/images/lang-logo.png">
     	</a>
