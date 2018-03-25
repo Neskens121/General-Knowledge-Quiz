@@ -73,8 +73,8 @@ $app->post('/', function() use($app) {
 			$testArr[] = $row;
 			foreach ($row as $key=>$value) {
 				var_dump($key);
-				echo '<br>';
-				var_dump($value);
+				//echo '<br>';
+				//var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
