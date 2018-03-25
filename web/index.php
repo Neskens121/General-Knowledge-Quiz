@@ -63,18 +63,19 @@ $app->post('/', function() use($app) {
 
 		var_dump($testArr);
 		*/
-		foreach ($queryResultArr as $value) {
-			if(isset($value['_id'])){
-				echo ((array)$value['_id'])['oid'];
-			} else {
+		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
+		var_dump($_SESSION);
+		shuffle($_SESSION['questionIndexArr']);
+		
 
+
+		foreach ($queryResultArr as $row) {
+			foreach ($row as $value) {
+				var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
 
-		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
-		var_dump($_SESSION);
-		shuffle($_SESSION['questionIndexArr']);
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
 		}
