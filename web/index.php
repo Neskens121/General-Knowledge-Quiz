@@ -67,7 +67,7 @@ $app->post('/', function() use($app) {
 		//var_dump($_SESSION);
 		shuffle($_SESSION['questionIndexArr']);
 		
-		for($i; $i < count($queryResultArr); $i++){
+		for($i = 0; $i < count($queryResultArr); $i++){
 			foreach ($queryResultArr[$i] as $key => $value) {
 				if(is_object($value)){
 					$testArr[$i][$key] = ((array)$value);			
