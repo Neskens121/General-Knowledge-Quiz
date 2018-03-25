@@ -72,15 +72,15 @@ $app->post('/', function() use($app) {
 		foreach ($queryResultArr as $row) {
 			//$testArr[] = $row;
 			foreach ($row as $key=>$value) {
-				/*if(is_object($value)){*/
-					//$testArr[$key] = ((array)$value['_id'])['oid'];			
-				/*} else {
-					$testArr[$key] = $value;
-				}*/
+				if(is_object($value)){
+					$testArr[$row][$key] = ((array)$value['_id'])['oid'];			
+				else {
+					$testArr[$row][$key] = $value;
+				}
 				//var_dump($key);
 				//echo '<br>';
-				echo (is_object($value));
-				var_dump($value);
+				//echo (is_object($value));
+				//var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
