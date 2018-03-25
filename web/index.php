@@ -70,11 +70,13 @@ $app->post('/', function() use($app) {
 
 
 		foreach ($queryResultArr as $row) {
-			foreach ($row as $value) {
+			$testArr[] = $row;
+			/*foreach ($row as $value) {
 				var_dump($value);
-			}
+			}*/
 			//var_dump(((array)$value['_id'])['oid']);
 		}
+		var_dump($testArr);
 
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
