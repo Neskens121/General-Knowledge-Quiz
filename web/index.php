@@ -65,9 +65,9 @@ $app->post('/', function() use($app) {
 		*/
 		foreach ($queryResultArr as $value) {
 			if(isset($value['_id'])){
-				echo ((array)$value['_id'])['oid']);
+				echo ((array)$value['_id'])['oid'];
 			} else {
-				
+
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
