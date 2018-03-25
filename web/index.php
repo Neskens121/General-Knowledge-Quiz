@@ -73,7 +73,7 @@ $app->post('/', function() use($app) {
 			//$testArr[] = $row;
 			foreach ($row as $key=>$value) {
 				if(is_object($value)){
-					$testArr[$key] = ((array)$value['_id']);			
+					$testArr[$key] = ((array)$value);			
 				} else {
 					$testArr[$key] = $value;
 				}
