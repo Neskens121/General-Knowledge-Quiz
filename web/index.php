@@ -52,12 +52,14 @@ $app->post('/', function() use($app) {
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
 		$cursor = $db->questions->find([],['projection' => ['question' => 1, 'potentialAnswers' => 1]]);
+		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
 		var_dump($cursor->toArray());
 
-		/*foreach ($questions as $key => $value) {
-			var_dump($value) ;
+		foreach ($cursor as $value) {
+			var_dump($value['question']) ;
 		}
-		$_SESSION['questionIndexArr'] = array_rand($questions, 5);
+
+		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $questions[$value];
