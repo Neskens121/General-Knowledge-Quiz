@@ -70,7 +70,7 @@ $app->post('/', function() use($app) {
 
 
 		foreach ($queryResultArr as $row) {
-			$testArr[] = $row;
+			//$testArr[] = $row;
 			foreach ($row as $key=>$value) {
 				if(is_object($value)){
 					//$testArr[$key] = ((array)$value['_id'])['oid'];			
