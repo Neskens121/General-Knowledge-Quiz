@@ -73,9 +73,9 @@ $app->post('/', function() use($app) {
 			//$testArr[] = $row;
 			foreach ($row as $key=>$value) {
 				if(is_object($value)){
-					$testArr[$row][$key] = ((array)$value['_id'])['oid'];			
+					$testArr[$key] = ((array)$value['_id'])['oid'];			
 				} else {
-					$testArr[$row][$key] = $value;
+					$testArr[$key] = $value;
 				}
 				//var_dump($key);
 				//echo '<br>';
