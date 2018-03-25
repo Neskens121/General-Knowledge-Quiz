@@ -77,23 +77,7 @@ $app->post('/', function() use($app) {
 			}
 		}
 
-		foreach ($queryResultArr as $row) {
-			//$testArr[] = $row;
-			//var_dump($row);
-			/*foreach ($row as $key=>$value) {
-				if(is_object($value)){
-					$testArr[$key] = ((array)$value);			
-				} else {
-					$testArr[$key] = $value;
-				}
-			}*/	//var_dump($key);
-				//echo '<br>';
-				//echo (is_object($value));
-				//var_dump($value);
-			
-			//var_dump(((array)$value['_id'])['oid']);
-		}
-		var_dump($testArr);
+		//var_dump($testArr);
 
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
