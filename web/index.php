@@ -67,11 +67,19 @@ $app->post('/', function() use($app) {
 		//var_dump($_SESSION);
 		shuffle($_SESSION['questionIndexArr']);
 		
-
+		for($i; $i < count($queryResultArr); $i++){
+			foreach ($queryResultArr[$i] as $key => $value) {
+				if(is_object($value)){
+					$testArr[$i][$key] = ((array)$value);			
+				} else {
+					$testArr[$i][$key] = $value;
+				}
+			}
+		}
 
 		foreach ($queryResultArr as $row) {
 			//$testArr[] = $row;
-			var_dump($row);
+			//var_dump($row);
 			/*foreach ($row as $key=>$value) {
 				if(is_object($value)){
 					$testArr[$key] = ((array)$value);			
