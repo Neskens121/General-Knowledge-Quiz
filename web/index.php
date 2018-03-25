@@ -54,6 +54,7 @@ $app->post('/', function() use($app) {
 		$cursor = $db->questions->find([],['projection' => ['question' => 1, 'potentialAnswers' => 1]]);
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
 		var_dump($cursor->toArray());
+		$cursor = $cursor->toArray();
 
 		foreach ($cursor as $value) {
 			var_dump($value['question']) ;
