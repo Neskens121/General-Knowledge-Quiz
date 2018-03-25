@@ -84,7 +84,7 @@ $app->post('/', function() use($app) {
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
-		//var_dump($testArr);
+		var_dump($testArr);
 
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
