@@ -64,14 +64,14 @@ $app->post('/', function() use($app) {
 		var_dump($testArr);
 		*/
 		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
-		var_dump($_SESSION);
+		//var_dump($_SESSION);
 		shuffle($_SESSION['questionIndexArr']);
 		
 
 
 		foreach ($queryResultArr as $row) {
 			foreach ($row as $value) {
-				var_dump($value);
+				var_dump($row);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
@@ -80,7 +80,7 @@ $app->post('/', function() use($app) {
 			$tempQuestionArr[] = $queryResultArr[$value];
 		}
 		$_SESSION['userAnswerArr'] = array();
-		var_dump($tempQuestionArr);
+		//var_dump($tempQuestionArr);
 
 		return $app['twig']->render('db.twig', array('questions' => $questions));
 		if(isset($_POST['startBtn'])){
