@@ -63,8 +63,12 @@ $app->post('/', function() use($app) {
 
 		var_dump($testArr);
 		*/
-		foreach ($queryResultArr as $key=>$value) {
-			echo $key;
+		foreach ($queryResultArr as $value) {
+			if(isset($value['_id'])){
+				echo ((array)$value['_id'])['oid']);
+			} else {
+				
+			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
 
