@@ -51,7 +51,7 @@ $app->post('/', function() use($app) {
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
-		$cursor = $db->questions->find([],['projection' =>[]]);
+		$cursor = $db->questions->find([],['projection' => ['question' => 1, 'potentialAnswers' => 1]]);
 		var_dump($cursor->toArray());
 
 		/*foreach ($questions as $key => $value) {
