@@ -62,7 +62,7 @@ $app->post('/', function() use($app) {
 
 		var_dump($testArr);
 		*/
-		foreach ($cursor as $value) {
+		foreach ($queryResultArr as $value) {
 			var_dump($value['_id']) ;
 		}
 
