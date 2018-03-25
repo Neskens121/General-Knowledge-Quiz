@@ -48,6 +48,7 @@ $app->post('/', function() use($app) {
 		session_destroy();
 		return $app['twig']->render('index.twig');
 	} else{
+		$_SESSION = array();
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
@@ -68,12 +69,13 @@ $app->post('/', function() use($app) {
 
 		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
 		var_dump($_SESSION);
-		/*shuffle($_SESSION['questionIndexArr']);
+		shuffle($_SESSION['questionIndexArr']);
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
-			$tempQuestionArr[] = $questions[$value];
+			$tempQuestionArr[] = $queryResultArr[$value];
 		}
 		$_SESSION['userAnswerArr'] = array();
-		var_dump($_SESSION);*/
+		var_dump($tempQuestionArr[]);
+		
 		return $app['twig']->render('db.twig', array('questions' => $questions));
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
