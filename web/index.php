@@ -79,7 +79,7 @@ $app->post('/', function() use($app) {
 				}*/
 				//var_dump($key);
 				//echo '<br>';
-				echo is_object($value);
+				echo (is_object($value));
 				var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
