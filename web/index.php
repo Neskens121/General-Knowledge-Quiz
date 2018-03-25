@@ -57,7 +57,7 @@ $app->post('/', function() use($app) {
 		$cursor = $cursor->toArray();
 
 		foreach ($cursor as $value) {
-			var_dump($value['question']) ;
+			echo($value['question']) ;
 		}
 
 		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
