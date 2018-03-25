@@ -63,9 +63,8 @@ $app->post('/', function() use($app) {
 		var_dump($testArr);
 		*/
 		foreach ($queryResultArr as $value) {
-			var_dump($value['_id']);
+			var_dump((array)$value['_id']['oid']);
 			var_dump($value['_id']->oid);
-			var_dump($value['_id']{0}->oid);
 		}
 
 		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
