@@ -72,9 +72,9 @@ $app->post('/', function() use($app) {
 		foreach ($queryResultArr as $row) {
 			$testArr[] = $row;
 			foreach ($row as $key=>$value) {
-				var_dump($key);
+				//var_dump($key);
 				//echo '<br>';
-				//var_dump($value);
+				var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
