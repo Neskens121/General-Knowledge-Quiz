@@ -71,7 +71,7 @@ $app->post('/', function() use($app) {
 
 		foreach ($queryResultArr as $row) {
 			foreach ($row as $value) {
-				var_dump($row);
+				var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
