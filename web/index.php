@@ -54,11 +54,17 @@ $app->post('/', function() use($app) {
 		$cursor = $db->questions->find([],['projection' => ['question' => 1, 'potentialAnswers' => 1]]);
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
 		//var_dump($cursor->toArray());
-		$cursor = $cursor->toArray();
-
-		foreach ($cursor as $value) {
-			echo($value['_id']=>'oid') ;
+		$queryResultArr = $cursor->toArray();
+		$testArr = [];
+		for($i = 0; $i < count($queryResultArr) ; $i++){
+			$testArr[$i] = $queryResultArr[$i];
 		}
+
+		var_dump($testArr);
+
+		/*foreach ($cursor as $value) {
+			echo($value['_id']=>'oid') ;
+		}*/
 
 		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
