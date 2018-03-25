@@ -53,6 +53,9 @@ $app->post('/', function() use($app) {
 		$db = $client->heroku_7hskhz92;
 		$questions = $db->questions->find([],['projection' =>[]]);
 		var_dump($questions);
+		foreach ($questions as $key => $value) {
+			echo $value;
+		}
 		$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
