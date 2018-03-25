@@ -53,12 +53,12 @@ $app->post('/', function() use($app) {
 		$db = $client->heroku_7hskhz92;
 		$cursor = $db->questions->find([],['projection' => ['question' => 1, 'potentialAnswers' => 1]]);
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-		var_dump($cursor->toArray());
-		/*$cursor = $cursor->toArray();
+		//var_dump($cursor->toArray());
+		$cursor = $cursor->toArray();
 
 		foreach ($cursor as $value) {
-			echo($value['oid']) ;
-		}*/
+			echo($value['_id']['oid']) ;
+		}
 
 		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
