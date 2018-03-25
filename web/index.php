@@ -55,16 +55,16 @@ $app->post('/', function() use($app) {
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
 		//var_dump($cursor->toArray());
 		$queryResultArr = $cursor->toArray();
-		$testArr = [];
+		/*$testArr = [];
 		for($i = 0; $i < count($queryResultArr) ; $i++){
 			$testArr[$i] = $queryResultArr[$i];
 		}
 
 		var_dump($testArr);
-
-		/*foreach ($cursor as $value) {
-			echo($value['_id']=>'oid') ;
-		}*/
+		*/
+		foreach ($cursor as $value) {
+			var_dump($value['_id']) ;
+		}
 
 		/*$_SESSION['questionIndexArr'] = array_rand($questions, 5);
 		shuffle($_SESSION['questionIndexArr']);
