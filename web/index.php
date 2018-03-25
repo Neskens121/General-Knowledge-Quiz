@@ -77,9 +77,10 @@ $app->post('/', function() use($app) {
 				/*} else {
 					$testArr[$key] = $value;
 				}*/
-				var_dump($key);
+				//var_dump($key);
 				//echo '<br>';
-				//var_dump($value);
+				echo is_object($value);
+				var_dump($value);
 			}
 			//var_dump(((array)$value['_id'])['oid']);
 		}
