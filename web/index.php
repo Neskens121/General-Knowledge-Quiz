@@ -101,7 +101,7 @@ $app->post('/', function() use($app) {
 		$_SESSION['userAnswerArr'] = array();
 		//var_dump($tempQuestionArr);
 
-		return $app['twig']->render('db.twig', array('questions' => $questions));
+		return $app['twig']->render('db.twig', array('questions' => $testArr));
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
 			var_dump($_POST);
