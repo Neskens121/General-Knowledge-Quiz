@@ -11,7 +11,7 @@
 			{#<?php foreach ($questions[$currentQuestionNumber]['potentialAnswers'] as $key => $value) { ?>#}
 				{% for key, question in questions %}
 					<li>
-						{{var_dump(question)}}
+						{{question['question']}}
 					</li>
 				{% endfor %}
 				{#{% for key, question in questions['potentialAnswers'] %} 
