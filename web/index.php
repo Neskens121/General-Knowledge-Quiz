@@ -47,22 +47,15 @@ $app->post('/', function() use($app) {
 		}
 		session_destroy();
 		return $app['twig']->render('index.twig');
-	} else{
+	} else {
 		$_SESSION = array();
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
 		$cursor = $db->questions->find([]);
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-		//var_dump($cursor->toArray());
 		$queryResultArr = $cursor->toArray();
-		/*$testArr = [];
-		for($i = 0; $i < count($queryResultArr) ; $i++){
-			$testArr[$i] = $queryResultArr[$i];
-		}
-
-		var_dump($testArr);
-		*/
+		
 		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
 		//var_dump($_SESSION);
 		shuffle($_SESSION['questionIndexArr']);
@@ -70,7 +63,7 @@ $app->post('/', function() use($app) {
 		for($i = 0; $i < count($queryResultArr); $i++){
 			foreach ($queryResultArr[$i] as $key => $value) {
 				if(is_object($value)){
-					$testArr[$i][$key] = ((array)$value)['oid'];			
+					$testArr[$i][$key] = ((array)$value)['oid'];
 				} else {
 					$testArr[$i][$key] = $value;
 				}
@@ -85,7 +78,8 @@ $app->post('/', function() use($app) {
 		$_SESSION['userAnswerArr'] = array();
 		//var_dump($tempQuestionArr);
 
-		return $app['twig']->render('db.twig', array('questions' => $testArr));
+		//return $app['twig']->render('db.twig', array('questions' => $testArr));
+		return $app['twig']->render('question.twig', array('questions' => $testArr));
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
 			var_dump($_POST);
@@ -97,10 +91,5 @@ $app->post('/', function() use($app) {
 		}
 	}
 });
-
-
-
-
-
 
 $app->run();
