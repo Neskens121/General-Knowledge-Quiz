@@ -4,14 +4,13 @@
 <div id="wrapper">
 		<h2>Question Number: <?php echo ($currentQuestionNumber + 1)?></h2>
 		<p>
-			<?php echo  $tempQuestionArr[$currentQuestionNumber]['question']?>		
+			{{questions[0]['question']}}		
 		</p>
 		<form id="questionForm" action="" method="POST">
 			<ul>
-			{#<?php foreach ($questions[$currentQuestionNumber]['potentialAnswers'] as $key => $value) { ?>#}
-				{% for key, question in questions %}
+				{% for potentialAnswer in questions[0]['potentialAnswers'] %}
 					<li>
-						{{question['question']}}
+						{{potentialAnswer}}
 					</li>
 				{% endfor %}
 				{#{% for key, question in questions['potentialAnswers'] %} 
