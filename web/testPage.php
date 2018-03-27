@@ -25,6 +25,7 @@ if($_POST){
 		}
 	}
 	$ajaxResult = $testArr[$currentQuestion];
+	$ajaxResult['answerCorrectness'] = $testArr[$currentQuestion]['indexOfCorrectAnswer'] == $answerIndex;
 
 	echo json_encode($ajaxResult);
 	
