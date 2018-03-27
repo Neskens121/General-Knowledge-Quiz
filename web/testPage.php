@@ -1,4 +1,6 @@
 <?php
+require('../vendor/autoload.php');
+
 session_start();
 //echo json_encode('sasas');
 
@@ -23,7 +25,7 @@ if($_POST){
 			}
 		}
 	}
-	return $testArr;
+	echo json_encode($testArr);
 	
 	//$tempQuestionArr[$currentQuestion]['answerCorrectness'] = $tempQuestionArr[$currentQuestion]['indexOfCorrectAnswer'] == $answerIndex;
 	//echo json_encode($tempQuestionArr[$currentQuestion]);
