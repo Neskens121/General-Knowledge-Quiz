@@ -47,19 +47,15 @@ $app->post('/', function() use($app) {
 		}
 		session_destroy();
 		return $app['twig']->render('index.twig');
-	} else {
-		$_SESSION = array();
+	} elseif(isset($_POST['startBtn'])){
+		//$app['monolog']->addDebug('logging output.');
+		//var_dump($_POST);
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
 		$cursor = $db->questions->find([]);
 		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
 		$queryResultArr = $cursor->toArray();
-		
-		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
-		//var_dump($_SESSION);
-		shuffle($_SESSION['questionIndexArr']);
-		
 		for($i = 0; $i < count($queryResultArr); $i++){
 			foreach ($queryResultArr[$i] as $key => $value) {
 				if(is_object($value)){
@@ -69,28 +65,25 @@ $app->post('/', function() use($app) {
 				}
 			}
 		}
+		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
+		
+	} elseif(isset($_POST['questionNumber'])) {
+		var_dump($_POST);
+		return $app['twig']->render('quizResult.twig');
+
+		
+		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
+		shuffle($_SESSION['questionIndexArr']);
+		
+		
 
 		$questionNumber = $_POST['questionNumber'];
 
-		//var_dump($testArr);
-
+		
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
 		}
 		$_SESSION['userAnswerArr'] = array();
-		//var_dump($tempQuestionArr);
-
-		//return $app['twig']->render('db.twig', array('questions' => $testArr));
-		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
-		if(isset($_POST['startBtn'])){
-			$app['monolog']->addDebug('logging output.');
-			var_dump($_POST);
-			return $app['twig']->render('question.twig');	
-		} else {
-			$app['monolog']->addDebug('logging output.');
-			var_dump($_POST);
-			return $app['twig']->render('quizResult.twig');
-		}
 	}
 });
 
