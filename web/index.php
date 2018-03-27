@@ -70,8 +70,26 @@ $app->post('/', function() use($app) {
 		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		
 	} elseif(isset($_POST['questionNumber'])) {
-		var_dump($_POST);
-		return $app['twig']->render('quizResult.twig');
+		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
+		$client = new MongoDB\Client($uri);
+		$db = $client->heroku_7hskhz92;
+		$cursor = $db->questions->find([]);
+		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
+		$queryResultArr = $cursor->toArray();
+		for($i = 0; $i < count($queryResultArr); $i++){
+			foreach ($queryResultArr[$i] as $key => $value) {
+				if(is_object($value)){
+					$testArr[$i][$key] = ((array)$value)['oid'];
+				} else {
+					$testArr[$i][$key] = $value;
+				}
+			}
+		}
+		$questionNumber = $_POST['questionNumber'];
+		if($questionNumber < count($testArr)){
+			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
+		} else { return $app['twig']->render('quizResult.twig'); }
+		
 
 		
 		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
