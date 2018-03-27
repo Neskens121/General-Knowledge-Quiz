@@ -15,12 +15,6 @@
 						
 					</li>
 				{% endfor %}
-				{#{% for key, question in questions['potentialAnswers'] %} 
-					<li>
-						<input type='radio' name='question' value={{key}} id={{key}} required>
-						<label for={{key}}>{{ value }}</label>
-					</li>
-				{% endfor %}#}
 			</ul>
 			<input type="hidden" id="questionNumber" name="questionNumber" value={{ questionNumber }}>
 			<button type="button" id="checkAnswerBtn">Check Answer</button>
