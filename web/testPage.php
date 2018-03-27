@@ -2,7 +2,6 @@
 require('../vendor/autoload.php');
 
 session_start();
-//echo json_encode('sasas');
 
 if($_POST){
 	//echo $_POST['myArray'];
@@ -25,7 +24,9 @@ if($_POST){
 			}
 		}
 	}
-	echo json_encode($testArr);
+	$ajaxResult = $testArr[$currentQuestion];
+
+	echo json_encode($ajaxResult);
 	
 	//$tempQuestionArr[$currentQuestion]['answerCorrectness'] = $tempQuestionArr[$currentQuestion]['indexOfCorrectAnswer'] == $answerIndex;
 	//echo json_encode($tempQuestionArr[$currentQuestion]);
