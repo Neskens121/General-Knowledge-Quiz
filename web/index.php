@@ -48,9 +48,11 @@ $app->post('/', function() use($app) {
 		session_destroy();
 		return $app['twig']->render('index.twig');
 	} elseif(isset($_POST['startBtn'])){
+
+		echo 'u dobroj smo grani';
 		//$app['monolog']->addDebug('logging output.');
 		//var_dump($_POST);
-		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
+		/*$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 		$client = new MongoDB\Client($uri);
 		$db = $client->heroku_7hskhz92;
 		$cursor = $db->questions->find([]);
@@ -65,7 +67,7 @@ $app->post('/', function() use($app) {
 				}
 			}
 		}
-		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
+		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));*/
 		
 	} elseif(isset($_POST['questionNumber'])) {
 		var_dump($_POST);
