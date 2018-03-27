@@ -70,6 +70,8 @@ $app->post('/', function() use($app) {
 			}
 		}
 
+		$questionNumber = $_POST['questionNumber'];
+
 		//var_dump($testArr);
 
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
@@ -79,7 +81,7 @@ $app->post('/', function() use($app) {
 		//var_dump($tempQuestionArr);
 
 		//return $app['twig']->render('db.twig', array('questions' => $testArr));
-		return $app['twig']->render('question.twig', array('questions' => $testArr));
+		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		if(isset($_POST['startBtn'])){
 			$app['monolog']->addDebug('logging output.');
 			var_dump($_POST);
