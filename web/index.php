@@ -66,6 +66,7 @@ $app->post('/', function() use($app) {
 				}
 			}
 		}
+		$questionNumber = $_POST['questionNumber'];
 		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		
 	} elseif(isset($_POST['questionNumber'])) {
@@ -78,8 +79,7 @@ $app->post('/', function() use($app) {
 		
 		
 
-		$questionNumber = $_POST['questionNumber'];
-
+		
 		
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
