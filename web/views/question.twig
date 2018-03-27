@@ -4,11 +4,11 @@
 <div id="wrapper">
 		<h2>Question Number: {{ questionNumber }}</h2>
 		<p>
-			{{questions[0]['question']}}		
+			{{questions[{{ questionNumber }}]['question']}}		
 		</p>
 		<form id="questionForm" action="" method="POST">
 			<ul>
-				{% for key, potentialAnswer in questions[0]['potentialAnswers'] %}
+				{% for key, potentialAnswer in questions[{{ questionNumber }}]['potentialAnswers'] %}
 					<li>
 						<input type='radio' name='question' value={{key}} id={{key}} required>
 						<label for={{key}}>{{ potentialAnswer }}</label>
