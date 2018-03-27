@@ -23,7 +23,7 @@ if($_POST){
 			}
 		}
 	}
-	echo json_encode($testArr);
+	return $testArr;
 	
 	//$tempQuestionArr[$currentQuestion]['answerCorrectness'] = $tempQuestionArr[$currentQuestion]['indexOfCorrectAnswer'] == $answerIndex;
 	//echo json_encode($tempQuestionArr[$currentQuestion]);
