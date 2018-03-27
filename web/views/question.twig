@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="wrapper">
-		<h2>Question Number: {{ questionNumber }}</h2>
+		<h2>Question Number: {{ questionNumber + 1 }}</h2>
 		<p>
 			{{questions[ questionNumber ]['question']}}		
 		</p>
@@ -10,8 +10,8 @@
 			<ul>
 				{% for key, potentialAnswer in questions[ questionNumber ]['potentialAnswers'] %}
 					<li>
-						<input type='radio' name='question' value={{key}} id={{key}} required>
-						<label for={{key}}>{{ potentialAnswer }}</label>
+						<input type='radio' name='question' value={{ key }} id={{ key }} required>
+						<label for={{ key }}>{{ potentialAnswer }}</label>
 						
 					</li>
 				{% endfor %}
