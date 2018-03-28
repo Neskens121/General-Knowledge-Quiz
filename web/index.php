@@ -90,7 +90,7 @@ $app->post('/', function() use($app) {
 			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		} else {
 			$userAnswers = $_SESSION['userAnswers'];
-			return $app['twig']->render('quizResult.twig', 'userAnswers' => $userAnswers);
+			return $app['twig']->render('quizResult.twig', array('userAnswers' => $userAnswers));
 		}
 		
 
