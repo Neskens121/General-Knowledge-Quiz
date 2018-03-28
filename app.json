@@ -1,6 +1,6 @@
 {
   "name": "Quiz of general knowledge",
   "description": "A barebones PHP app that makes use of the Silex web framework",
-  "repository": "https://github.com/heroku/php-getting-started",
+  "repository": "https://github.com/Neskens121/General-Knowledge-Quiz",
   "addons": []
 }
