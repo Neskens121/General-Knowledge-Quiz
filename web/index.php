@@ -48,6 +48,7 @@ $app->post('/', function() use($app) {
 		session_destroy();
 		return $app['twig']->render('index.twig');
 	} elseif(isset($_POST['startBtn'])){
+		$_SESSION['questionsArr'] = $testArr;
 		//$_SESSION('userAnswers') = array();
 		//$app['monolog']->addDebug('logging output.');
 		//var_dump($_POST);
@@ -85,7 +86,7 @@ $app->post('/', function() use($app) {
 				}
 			}
 		}
-		$_SESSION['questionsArr'] = $testArr;
+		
 
 		$questionNumber = $_POST['questionNumber'];
 		if($questionNumber < count($testArr)){
