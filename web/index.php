@@ -89,7 +89,7 @@ $app->post('/', function() use($app) {
 		if($questionNumber < count($testArr)){
 			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		} else {
-			var_dump($_SESSION('userAnswers')) 
+			var_dump($_SESSION['userAnswers']);
 			return $app['twig']->render('quizResult.twig');
 		}
 		
