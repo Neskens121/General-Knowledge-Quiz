@@ -60,8 +60,7 @@ $app->post('/', function() use($app) {
 		
 	} elseif(isset($_POST['questionNumber'])) {
 		require('db.php');
-		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-
+		
 		$questionNumber = $_POST['questionNumber'];
 		if($questionNumber < count($testArr)){
 			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
