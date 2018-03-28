@@ -85,11 +85,35 @@ $app->post('/', function() use($app) {
 				}
 			}
 		}
+		$_SESSION['questionsArr'] = $testArr;
+
 		$questionNumber = $_POST['questionNumber'];
 		if($questionNumber < count($testArr)){
 			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		} else {
+			function calculateScore($questionsArr, $userInfoArr){
+				$score = 0;
+				for($i = 0; $i < count($userInfoArr); $i++){
+					if($questionsArr[$i]['indexOfCorrectAnswer'] == $userInfoArr[$i]['indexOfAnswer']){$score++;}
+				}
+				return $score;
+			}
+
+			function testFnc($questionsArr){
+				foreach ($questionsArr as $key => $value) {
+					echo $key;
+					echo $value;
+				}
+			}
+
+
+			$questionsArr = $_SESSION['questionsArr'];
 			$userAnswers = $_SESSION['userAnswers'];
+			testFnc($questionsArr);
+			testFnc($userAnswers);
+
+			//$quizScore = calculateScore($questionsArr, $userAnswers);
+
 			return $app['twig']->render('quizResult.twig', array('userAnswers' => $userAnswers));
 		}
 		
