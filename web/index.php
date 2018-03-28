@@ -48,7 +48,7 @@ $app->post('/', function() use($app) {
 		session_destroy();
 		return $app['twig']->render('index.twig');
 	} elseif(isset($_POST['startBtn'])){
-
+		$_SESSION('userAnswers') = array();
 		//$app['monolog']->addDebug('logging output.');
 		//var_dump($_POST);
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
@@ -88,7 +88,10 @@ $app->post('/', function() use($app) {
 		$questionNumber = $_POST['questionNumber'];
 		if($questionNumber < count($testArr)){
 			return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
-		} else { return $app['twig']->render('quizResult.twig'); }
+		} else {
+			var_dump($_SESSION('userAnswers')) 
+			return $app['twig']->render('quizResult.twig');
+		}
 		
 
 		
