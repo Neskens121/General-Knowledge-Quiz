@@ -6,9 +6,9 @@ session_start();
 if($_POST){
 	//echo $_POST['myArray'];
 	$currentQuestion = $_POST['currentQuestion'];
-	$answerIndex = $_POST['answerIndex'];
+	$indexOfAnswer = $_POST['answerIndex'];
 	$questionNumber = $_POST['questionNumber'];
-	$_SESSION['userAnswers'][] = array('currentQuestion' => $currentQuestion, 'answerIndex' => $answerIndex);
+	$_SESSION['userAnswers'][] = array('currentQuestion' => $currentQuestion, 'indexOfAnswer' => $indexOfAnswer);
 	//echo $currentQuestion;
 	$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 	$client = new MongoDB\Client($uri);
@@ -26,7 +26,7 @@ if($_POST){
 		}
 	}
 	$ajaxResult = $testArr[$currentQuestion];
-	$ajaxResult['answerCorrectness'] = $testArr[$currentQuestion]['indexOfCorrectAnswer'] == $answerIndex;
+	$ajaxResult['answerCorrectness'] = $testArr[$currentQuestion]['indexOfCorrectAnswer'] == $indexOfAnswer;
 
 	echo json_encode($ajaxResult);
 	
