@@ -8,7 +8,7 @@ if($_POST){
 	$currentQuestion = $_POST['currentQuestion'];
 	$answerIndex = $_POST['answerIndex'];
 	$questionNumber = $_POST['questionNumber'];
-	$_SESSION('userAnswers')[] = array('currentQuestion' => $currentQuestion, 'answerIndex' => $answerIndex);
+	$_SESSION['userAnswers'][] = array('currentQuestion' => $currentQuestion, 'answerIndex' => $answerIndex);
 	//echo $currentQuestion;
 	$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
 	$client = new MongoDB\Client($uri);
