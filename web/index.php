@@ -52,42 +52,15 @@ $app->post('/', function() use($app) {
 		//$_SESSION('userAnswers') = array();
 		//$app['monolog']->addDebug('logging output.');
 		//var_dump($_POST);
-		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-		$client = new MongoDB\Client($uri);
-		$db = $client->heroku_7hskhz92;
-		$cursor = $db->questions->find([]);
-		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-		$queryResultArr = $cursor->toArray();
-		for($i = 0; $i < count($queryResultArr); $i++){
-			foreach ($queryResultArr[$i] as $key => $value) {
-				if(is_object($value)){
-					$testArr[$i][$key] = ((array)$value)['oid'];
-				} else {
-					$testArr[$i][$key] = $value;
-				}
-			}
-		}
+		require('db.php');
+
 		$_SESSION['questionsArr'] = $testArr;
 		$questionNumber = $_POST['questionNumber'];
 		return $app['twig']->render('question.twig', array('questions' => $testArr, 'questionNumber' => $questionNumber));
 		
 	} elseif(isset($_POST['questionNumber'])) {
+		require('db.php');
 		$uri = "mongodb://testUser:12345!@ds249545.mlab.com:49545/heroku_7hskhz92";
-		$client = new MongoDB\Client($uri);
-		$db = $client->heroku_7hskhz92;
-		$cursor = $db->questions->find([]);
-		$cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-		$queryResultArr = $cursor->toArray();
-		for($i = 0; $i < count($queryResultArr); $i++){
-			foreach ($queryResultArr[$i] as $key => $value) {
-				if(is_object($value)){
-					$testArr[$i][$key] = ((array)$value)['oid'];
-				} else {
-					$testArr[$i][$key] = $value;
-				}
-			}
-		}
-		
 
 		$questionNumber = $_POST['questionNumber'];
 		if($questionNumber < count($testArr)){
