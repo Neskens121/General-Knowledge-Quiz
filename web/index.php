@@ -114,9 +114,9 @@ $app->post('/', function() use($app) {
 			testFnc($questionsArr);
 			testFnc($userAnswers);
 
-			//$quizScore = calculateScore($questionsArr, $userAnswers);
+			$quizScore = calculateScore($questionsArr, $userAnswers);
 
-			return $app['twig']->render('quizResult.twig', array('userAnswers' => $userAnswers));
+			return $app['twig']->render('quizResult.twig', array('userAnswers' => $userAnswers, 'quizScore' => $quizScore));
 		}
 		
 
