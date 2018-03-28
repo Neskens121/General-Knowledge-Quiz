@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+	{{ quizResults }}
 	<div id="wrapper">
 		<h2>Quiz is over</h2>
 		<p>You scored <?php echo calculateScore($tempQuestionArr, $_SESSION['userAnswerArr']) ?> points</p>
