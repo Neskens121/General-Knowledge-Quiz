@@ -101,37 +101,24 @@ $app->post('/', function() use($app) {
 				return $score;
 			}
 
-			function testFnc($questionsArr){
-				foreach ($questionsArr as $key => $value) {
-					echo $key;
-					echo $value;
-				}
-			}
-
-
 			$questionsArr = $_SESSION['questionsArr'];
 			$userAnswers = $_SESSION['userAnswers'];
-			testFnc($questionsArr);
-			testFnc($userAnswers);
-
+			
 			$quizScore = calculateScore($questionsArr, $userAnswers);
 
 			return $app['twig']->render('quizResult.twig', array('userAnswers' => $userAnswers, 'quizScore' => $quizScore));
 		}
 		
 
-		
+		/*
 		$_SESSION['questionIndexArr'] = array_rand($queryResultArr, 5);
 		shuffle($_SESSION['questionIndexArr']);
-		
-		
-
-		
 		
 		foreach ($_SESSION['questionIndexArr'] as $key => $value) {
 			$tempQuestionArr[] = $queryResultArr[$value];
 		}
-		$_SESSION['userAnswerArr'] = array();
+		$_SESSION['userAnswerArr'] = array();*/
+
 	}
 });
 
